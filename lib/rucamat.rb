@@ -1,5 +1,6 @@
-require "rucamat/version"
+$root = File.expand_path('../../', __FILE__)
+require "#{$root}/lib/rucamat/version"
+require "#{$root}/lib/rucamat/system_interactor"
 
-module Rucamat
-  # Your code goes here...
+module Rucamat  
 end
