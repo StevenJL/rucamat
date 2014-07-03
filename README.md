@@ -28,7 +28,7 @@ rucamat
 
 # generates the json
 {
-  "search_stats": {
+  "stats": {
     "num_of_classes": "4",
     "num_of_modules: "1",
     "num_of_methods": "20"
@@ -40,6 +40,8 @@ rucamat
       "classes": [
         {
           "name": "UberArticleController",
+          "num_of_lines": "128",
+          "locations": ["app/controllers/article/uber_article_controller.rb"],
           "methods": [ 
             { 
               "name": "new",
@@ -60,6 +62,7 @@ rucamat
     {
       "name": "ApplicationController",
       "num_of_lines": "150",
+      "locations:" ["app/controllers/application_controller.rb"]
       "methods": [
         {
           "name": "set_cache_headers",
@@ -78,7 +81,7 @@ You can use keywords to search your code.  Find all the classes, modules, and me
 rucamat -query 'tag.ancestor' -directory 'app/models'
 
 {
-  "search_stats": {
+  "stats": {
     "num_of_classes": "1",
     "num_of_modules: "0",
     "num_of_methods": "2"
@@ -87,23 +90,18 @@ rucamat -query 'tag.ancestor' -directory 'app/models'
   "classes":[
     {
       "name": "TagController",
-      "search_results": [
-        {
-          "line_number": "7",
-          "code": "     if !tag.ancestors.empty?"
-        }
-      ]
+      "locations:" ["app/controllers/tag_controller.rb"],
       "methods": [
         {
           "name": "create",
           "search_results":[
             {
               "line_number": "25",
-              "code": "      tags.ancestors.each do |tag|"
+              "search_result": "      tags.ancestors.each do |tag|"
             },
             {
               "line_number": "40",
-              "code": "      temp_array = tags.ancestors.reverse"
+              "search_result": "      temp_array = tags.ancestors.reverse"
             },
           ]
         }
