@@ -71,9 +71,6 @@ rucamat
 }
 ```
 
-##### You can specify directories
-
-
 ##### Find all the methods that contain a given search string.
 You can use keywords to search your code.  Find all the classes, modules, and methods that contain certain keywords.  For example, let's say I want to find all the methods which have the keyword "tag.ancestor" in the "app/models" directory.
 
@@ -117,6 +114,13 @@ rucamat -query 'tag.ancestor' -directory 'app/models'
 ```
 
 ### Options
+
+You can specify which classes or modules
+
+```
+rucamat -class 'ApplicationController'
+rucamat -module 'Helper'
+```
 
 You can specify directories to look
 ```
