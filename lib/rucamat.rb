@@ -1,7 +1,5 @@
-$root = File.expand_path('../../', __FILE__)
-require "#{$root}/lib/rucamat/version"
-require "#{$root}/lib/rucamat/system_interactor"
-require "#{$root}/lib/rucamat/file_analyzer"
+$:.unshift File.dirname(__FILE__)
 
-module Rucamat
-end
+require 'rucamat/version'
+require 'rucamat/system_interactor'
+require 'rucamat/file_analyzer'

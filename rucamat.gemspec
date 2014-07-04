@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Steven Li"]
   spec.email         = ["stevenjli@gmail.com"]
   spec.summary       = %q{Ruby code class, modules, and methods analysis command line tool}
-  spec.description   = %q{Command Line Tool to analyze all the classes, modules, and methods in your Ruby project.}
+  spec.description   = %q{Command Line Tool to analyze the classes, modules, and methods in your Ruby project.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,8 +18,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "thor"
+
   spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_development_dependency "pry"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency "pry"
 end
