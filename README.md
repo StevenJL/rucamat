@@ -4,8 +4,11 @@
 Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.  Supports options such as:
 
 1) Find all modules, classes, methods which contain a search query (great for debugging, refactoring, etc.)
+
 2) Specify the directories to look in (defaults to Ruby project root)
+
 3) Specify classes, modules to analyze.
+
 4) Sort results by alphabetical order, or "size" defined as number of lines.
 
 ## Installation
