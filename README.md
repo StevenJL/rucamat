@@ -24,7 +24,7 @@ Or install it yourself as:
 ```
 # in the root directory of your ruby project
 # /src/ruby_projects/my_fav_ruby_project
-rucamat
+rucamat generate
 
 # generates the json
 {
@@ -53,8 +53,7 @@ rucamat
             }
           ]
         }
-      ],
-      
+      ],      
     }
   ],
 
@@ -78,7 +77,7 @@ rucamat
 You can use keywords to search your code.  Find all the classes, modules, and methods that contain certain keywords.  For example, let's say I want to find all the methods which have the keyword "tag.ancestor" in the "app/models" directory.
 
 ```
-rucamat -query 'tag.ancestor' -directory 'app/models'
+rucamat generate --query='tag.ancestor' --directory='app/models'
 
 {
   "stats": {
@@ -116,26 +115,26 @@ rucamat -query 'tag.ancestor' -directory 'app/models'
 You can specify which classes or modules
 
 ```
-rucamat -class 'ApplicationController'
-rucamat -module 'Helper'
+rucamat generate --class='ApplicationController'
+rucamat generate --module='Helper'
 ```
 
 You can specify directories to look
 ```
-rucamat -directory 'app/models/'
+rucamat generate --directory='app/models/'
 # only look for classes, modules, and methods in the models directory
 
-rucamat -directory 'lib/'
+rucamat generate --directory='lib/'
 # only look for classes, modules, and methods in the lib directory
 ```
 
 You can sort by alphabetical or number of lines of code
 ```
-rucamat -sort num_of_lines
+rucamat generate --sort='num_of_lines'
 # the classes, modules, and methods are all returned in order number of
-# lines of code descending
+# lines of code descending (ie. biggest modules/classes/methods first)
 
-rucamat -sort alpha
+rucamat generate --sort='alpha'
 # the classes, modules, and methods are all returned in alphabetical order
 ```
 
