@@ -21,12 +21,12 @@ module Rucamat
 
     class_option :sort,
       :alias => '-sr',
-      :desc => 'specify sorting of results'
+      :desc => 'specify sorting of results',
+      :default => 'num_of_lines'
 
     desc 'generate', "generates class, module, and methods report"
     def generate
-      puts "HIT GENERATE"
-      puts "#{options}"
+      Generator.new(options).perform
     end
   end
 end

@@ -1,7 +1,7 @@
 # Rucamat
 #### Ruby Class and Module Analysis Tool
 
-Command Line Tool to analyze all the classes, modules, and methods in your Ruby project.
+Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.
 
 ## Installation
 
@@ -112,7 +112,7 @@ rucamat generate --query='tag.ancestor' --directory='app/models'
 
 ### Options
 
-You can specify which classes or modules
+You can specify which classes or modules.  Note these options are used in conjunction (boolean and operator) and returns only results satisfying ALL constraints.
 
 ```
 rucamat generate --class='ApplicationController'
@@ -134,7 +134,7 @@ rucamat generate --sort='num_of_lines'
 # the classes, modules, and methods are all returned in order number of
 # lines of code descending (ie. biggest modules/classes/methods first)
 
-rucamat generate --sort='alpha'
+rucamat generate --sort='alphabetical'
 # the classes, modules, and methods are all returned in alphabetical order
 ```
 

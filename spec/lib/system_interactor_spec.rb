@@ -13,5 +13,3 @@ describe Rucamat::SystemInteractor do
     expect(bar_ruby_files.count).to eq(2)
   end
 end
-
-
