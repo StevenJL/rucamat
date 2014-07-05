@@ -1,7 +1,12 @@
 # Rucamat
-#### Ruby Class and Module Analysis Tool
+#### Ruby Class, Module, and Methods Catalog and Analysis Tool (Work in Progress)
 
-Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.
+Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.  Supports options such as:
+
+1) Find all modules, classes, methods which contain a search query (great for debugging, refactoring, etc.)
+2) Specify the directories to look in (defaults to Ruby project root)
+3) Specify classes, modules to analyze.
+4) Sort results by alphabetical order, or "size" defined as number of lines.
 
 ## Installation
 
@@ -22,9 +27,9 @@ Or install it yourself as:
 ##### Generate a json of all modules, classes, and methods in your project.
 
 ```
-# in the root directory of your ruby project
+# run the command in the root directory of your ruby project
 # /src/ruby_projects/my_fav_ruby_project
-rucamat generate
+$ rucamat generate
 
 # generates the json
 {
@@ -77,7 +82,7 @@ rucamat generate
 You can use keywords to search your code.  Find all the classes, modules, and methods that contain certain keywords.  For example, let's say I want to find all the methods which have the keyword "tag.ancestor" in the "app/models" directory.
 
 ```
-rucamat generate --query='tag.ancestor' --directory='app/models'
+$ rucamat generate --query='tag.ancestor' --directory='app/models'
 
 {
   "stats": {
@@ -115,8 +120,8 @@ rucamat generate --query='tag.ancestor' --directory='app/models'
 You can specify which classes or modules.  Note these options are used in conjunction (boolean and operator) and returns only results satisfying ALL constraints.
 
 ```
-rucamat generate --class='ApplicationController'
-rucamat generate --module='Helper'
+$ rucamat generate --class='ApplicationController'
+$ rucamat generate --module='Helper'
 ```
 
 You can specify directories to look

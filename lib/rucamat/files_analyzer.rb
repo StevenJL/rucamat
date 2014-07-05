@@ -1,16 +1,16 @@
 module Rucamat
   class FilesAnalyzer
 
-    def initialize(files)
+    def initialize(files, sort)
       @files = files
-      # files is actually an array of paths to the file      
+      @sort = sort
+      # files is actually an array of strings
     end
 
     def perform
-      @files.each do
-        
-
-      @main        
+      @files.each do |file|
+        Rucamat::FileAnalyzer.new(file).perform
+      end
     end
   end
 end
