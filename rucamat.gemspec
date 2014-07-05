@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Steven Li"]
   spec.email         = ["stevenjli@gmail.com"]
   spec.summary       = %q{Ruby code class, modules, and methods analysis command line tool}
-  spec.description   = %q{Command Line Tool to analyze the classes, modules, and methods in your Ruby project.}
-  spec.homepage      = ""
+  spec.description   = %q{Command Line Tool to catalog and analyze classes, modules, and methods in your Ruby project.}
+  spec.homepage      = "https://github.com/StevenJL/rucamat"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
