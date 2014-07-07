@@ -7,6 +7,9 @@ module Rucamat
         @name = name
         @search_results = []
       end
+
+      def 
+
     end
   end
 end

@@ -1,5 +1,5 @@
-# Rucamat
-#### Ruby Class, Module, and Methods Catalog and Analysis Tool (Work in Progress)
+# Rucamat (Work in Progress)
+#### Ruby Class, Module, and Methods Catalog and Analysis Tool
 
 Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.  Supports options such as:
 

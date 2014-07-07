@@ -46,8 +46,5 @@ module Rucamat
         )
       @files &= @module_files
     end
-
-    def  
-    end
   end
 end

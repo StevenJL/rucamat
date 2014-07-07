@@ -1,10 +1,22 @@
 module Rucamat
   module Representers
     class Class
-      attr_accessor :name, :num_of_lines, :locations, :methods
 
-      def initialize(name)
+      def initialize(name, methods=[], locations=[])
         @name = name
+        @methods = methods
+        @locations = locations
+      end
+
+      def ==(arg)
+        self.name == arg.name
+      end
+
+      def merge(obj)
+        return unless @name == obj.name
+        obj.methods
+
+
       end
     end
   end

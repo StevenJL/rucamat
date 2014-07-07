@@ -8,3 +8,4 @@ require 'rucamat'
 require 'rucamat/cli'
 
 Rucamat::CLI.start(ARGV)
+
