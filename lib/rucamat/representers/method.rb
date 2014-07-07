@@ -8,8 +8,6 @@ module Rucamat
         @search_results = []
       end
 
-      def 
-
     end
   end
 end
