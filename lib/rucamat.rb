@@ -10,5 +10,3 @@ require 'rucamat/representers/method'
 require 'rucamat/representers/class'
 require 'rucamat/representers/module'
 require 'rucamat/representers/main'
-
-

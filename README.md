@@ -1,17 +1,21 @@
-# Rucamat (Work in Progress)
-#### Ruby Class, Module, and Methods Catalog and Analysis Tool
+# README
 
-Command Line Tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.  Supports options such as:
+[![Code Climate](https://codeclimate.com/github/StevenJL/rucamat.png)](https://codeclimate.com/github/StevenJL/rucamat)
+
+## Rucamat (Work in Progress)
+##### Ruby Class, Module, and Methods Catalog and Analysis Tool
+
+Command line tool to catalog, search, and analyze all the classes, modules, and methods in your Ruby project.  Generates a JSON-tree of the modules, classes, and methods in Ruby project.  Supports options such as:
 
 1) Find all modules, classes, methods which contain a search query (great for debugging, refactoring, etc.)
 
-2) Specify the directories to look in (defaults to Ruby project root)
+2) Specify the directories to look in. It defaults to the Ruby project root, but you can specify the directory 'lib/' or 'app/controllers/'.
 
-3) Specify classes, modules to analyze.
+3) Search specific classes and modules to analyze. (ie. reports only classes with names that contain the string 'Controller')
 
-4) Sort results by alphabetical order, or "size" defined as number of lines.
+4) Sort results by alphabetical order, or "size" defined as number of lines.  It defaults to alphabetical.
 
-## Installation
+### Installation
 
 Add this line to your application's Gemfile:
 
@@ -25,13 +29,13 @@ Or install it yourself as:
 
     $ gem install rucamat
 
-## Usage
+### Usage
 
-##### Generate a json of all modules, classes, and methods in your project.
+###### Generate a json of all modules, classes, and methods in your project with basic stats.
 
 ```
-# run the command in the root directory of your ruby project
 # /src/ruby_projects/my_fav_ruby_project
+
 $ rucamat generate
 
 # generates the json
@@ -81,11 +85,11 @@ $ rucamat generate
 }
 ```
 
-##### Find all the methods that contain a given search string.
-You can use keywords to search your code.  Find all the classes, modules, and methods that contain certain keywords.  For example, let's say I want to find all the methods which have the keyword "tag.ancestor" in the "app/models" directory.
+###### Search through your code for a query string, and view the results in a nice json format.
+You can use keywords to search your code.  Find all the classes, modules, and methods that contain certain keywords.  For example, let's say I want to find the places where a `user` model calls its `validate` method.  If we know all models live in `app/models`, we can just specify that directory.
 
 ```
-$ rucamat generate --query='tag.ancestor' --directory='app/models'
+$ rucamat generate --query='user.validate' --directory='app/models'
 
 {
   "stats": {
@@ -96,31 +100,32 @@ $ rucamat generate --query='tag.ancestor' --directory='app/models'
 
   "classes":[
     {
-      "name": "TagController",
-      "locations:" ["app/controllers/tag_controller.rb"],
+      "name": "UserController",
+      "locations:" ["app/controllers/user_controller.rb"],
       "methods": [
         {
           "name": "create",
           "search_results":[
             {
               "line_number": "25",
-              "search_result": "      tags.ancestors.each do |tag|"
+              "search_result": "      user.validate if user"
             },
             {
               "line_number": "40",
-              "search_result": "      temp_array = tags.ancestors.reverse"
+              "search_result": "     user.validate "
             },
           ]
         }
       ]
     }
   ]
+}
 
 ```
 
-### Options
+#### Options Usage
 
-You can specify which classes or modules.  Note these options are used in conjunction (boolean and operator) and returns only results satisfying ALL constraints.
+You can specify which classes or modules to analyze.  Note these options are used in conjunction (boolean and operator) and returns only results satisfying ALL constraints.
 
 ```
 $ rucamat generate --class='ApplicationController'
@@ -144,6 +149,10 @@ rucamat generate --sort='num_of_lines'
 
 rucamat generate --sort='alphabetical'
 # the classes, modules, and methods are all returned in alphabetical order
+
+# let's use every option!
+rucamat generate --module='Admin' --class='User' --query='def validate' --directory='lib/' --sort='alphabetical'
+# we're only searching in Admin::User in the lib directory for the code 'def validate' and we're sorting the results alphabetically.
 ```
 
 ## Contributing
@@ -153,3 +162,5 @@ rucamat generate --sort='alphabetical'
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
