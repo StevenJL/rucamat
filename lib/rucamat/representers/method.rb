@@ -8,6 +8,10 @@ module Rucamat
         @search_results = search_results
         @locations = locations
       end
+
+      def ==(arg)
+        self.name == arg.name
+      end
     end
   end
 end

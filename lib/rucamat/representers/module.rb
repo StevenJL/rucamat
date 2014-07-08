@@ -8,6 +8,10 @@ module Rucamat
         @classes = []
         @methods = []
       end
+
+      def ==(arg)
+        self.name == arg.name
+      end
     end
   end
 end

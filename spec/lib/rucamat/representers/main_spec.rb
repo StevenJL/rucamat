@@ -4,7 +4,6 @@ require "#{$root}/spec/spec_helper"
 
 describe Rucamat::Representers::Main do
   it 'merges another main correctly' do
-    binding.pry
     klass1 = Rucamat::Representers::Class.new('Foo')
     klass2 = Rucamat::Representers::Class.new('Bar')
     klass3 = Rucamat::Representers::Class.new('Baz')
