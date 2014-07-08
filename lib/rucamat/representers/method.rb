@@ -12,6 +12,9 @@ module Rucamat
       def ==(arg)
         self.name == arg.name
       end
+
+      def merge(obj)
+      end
     end
   end
 end

@@ -1,10 +1,7 @@
-require 'bundler/gem_tasks'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
-Spec::Rake::SpecTask.new(:spec) do |task|
-  task.spec_files = FileList('spec/**/*_spec.rb')
-end
+task :default => [:spec]
 
-task :default do
-  Rake::Task['spec'].execute
+RSpec::Core::RakeTask.new(:spec) do |task|
+  task.pattern = 'spec/**/*_spec.rb'
 end

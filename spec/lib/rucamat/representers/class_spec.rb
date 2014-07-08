@@ -11,7 +11,7 @@ describe Rucamat::Representers::Class do
     expect(klass2 == klass3).to eq(false)
   end
 
-  it 'merges another class correctly' do
+  it "merges another class methods correctly" do
     method1 = Rucamat::Representers::Method.new('bar1', [])
     method2 = Rucamat::Representers::Method.new('bar2', [])
     method3 = Rucamat::Representers::Method.new('bar3', [])
@@ -20,7 +20,7 @@ describe Rucamat::Representers::Class do
     klass2 = Rucamat::Representers::Class.new('Foo', [method2, method3])
     klass1.merge(klass2)
 
-    methods_array = klass1.methods
+    methods_array = klass1.methods.collection
 
     expect(methods_array).to include(method1)
     expect(methods_array).to include(method2)

@@ -1,12 +1,13 @@
 module Rucamat
   module Representers
     class Class
-      attr_reader :name, :methods, :locations
+      attr_reader :name, :classes, :methods, :paths
 
-      def initialize(name, methods=[], locations=[])
+      def initialize(name, classes=[], methods=[], paths=[])
         @name = name
-        @methods = methods
-        @locations = locations
+        @methods = Rucamat::Collection.new(methods)
+        @classes = Rucamat::Collection.new(classes)
+        @paths = paths
       end
 
       def ==(arg)
@@ -14,11 +15,10 @@ module Rucamat
       end
 
       def merge(obj)
-        return unless @name == obj.name
-        self_methods = self.methods.map { |m| m.name }
-        obj.methods.each do |meth|
-          self.methods << meth unless self_methods.include?(meth.name)
-        end
+        return unless obj.class == self.class
+        self.methods.merge(obj.methods)
+        self.classes.merge(obj.classes)
+        self.paths += obj.paths
       end
     end
   end
